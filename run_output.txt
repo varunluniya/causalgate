@@ -1,0 +1,5 @@
+Causal benchmark report — domain: dealer_pos_lending
+============================================================
+CORRELATION     accuracy= 80.0%  consistency= 80.0%  -> SAFE
+INTERVENTION    accuracy= 60.0%  consistency= 60.0%  -> NEEDS REVIEW
+COUNTERFACTUAL  accuracy= 40.0%  consistency= 40.0%  -> DO NOT DEPLOY
