@@ -49,6 +49,17 @@ ANTHROPIC_API_KEY=... curl -X POST localhost:8000/benchmarks -H 'content-type: a
 | `POST /benchmarks` | Per-level accuracy, lower bound, bands, use-case ship/block, regression, report |
 | `POST /overrides` · `POST /benchmarks/{id}/rerun` | Human grading → remembered → regrade |
 
+## Demo data
+
+`python seed.py` fills `data/causalgate.db` with synthetic history so every endpoint returns something meaningful on first run: Four benchmark runs over four months (recorded v1, demo-model-a, demo-model-b, demo-model-a re-graded) and two human grading overrides.
+
+```bash
+python seed.py            # create data/causalgate.db
+python seed.py --reset    # rebuild it from scratch
+```
+
+The Docker image seeds `/data` on first boot (set `GEN4_SEED=0` to start empty). All of it is synthetic: no real customers, patients, tickets or model outputs. `GET /health` shows the dataset's counts.
+
 ---
 
 ## The original engine (v1)
