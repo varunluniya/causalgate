@@ -1,0 +1,48 @@
+v1 (recorded verdicts, point estimates)
+
+Causal benchmark report — domain: dealer_pos_lending
+============================================================
+CORRELATION     accuracy= 80.0%  consistency= 80.0%  -> SAFE
+INTERVENTION    accuracy= 60.0%  consistency= 60.0%  -> NEEDS REVIEW
+COUNTERFACTUAL  accuracy= 40.0%  consistency= 40.0%  -> DO NOT DEPLOY
+
+
+v2 on the SAME recorded evidence
+
+Causal benchmark -- dealer_pos_lending -- v1-recorded (recorded_v1)
+========================================================================
+CORRELATION     acc= 80.0%  lower95= 37.5%  n=5   -> SAFE (insufficient evidence: DO NOT DEPLOY on lower bound)  need ~272 answers
+INTERVENTION    acc= 60.0%  lower95= 23.1%  n=5   -> NEEDS REVIEW (insufficient evidence: DO NOT DEPLOY on lower bound)
+COUNTERFACTUAL  acc= 40.0%  lower95= 11.8%  n=5   -> DO NOT DEPLOY
+------------------------------------------------------------------------
+use case risk_flag          BLOCKED by correlation
+use case policy_simulator   BLOCKED by correlation, intervention
+use case default_explainer  BLOCKED by correlation, counterfactual
+
+
+v2 on free-text answers (demo-model-b, bundled illustrative answer set)
+
+Causal benchmark -- dealer_pos_lending -- demo-model-b (answers)
+========================================================================
+CORRELATION     acc=100.0%  lower95= 79.6%  n=15  -> SAFE
+INTERVENTION    acc=100.0%  lower95= 79.6%  n=15  -> SAFE
+COUNTERFACTUAL  acc= 80.0%  lower95= 54.8%  n=15  -> SAFE (insufficient evidence: NEEDS REVIEW on lower bound)  need ~272 answers
+------------------------------------------------------------------------
+use case risk_flag          SHIP
+use case policy_simulator   SHIP
+use case default_explainer  BLOCKED by counterfactual
+
+
+v2 on free-text answers (demo-model-a, bundled illustrative answer set)
+
+Causal benchmark -- dealer_pos_lending -- demo-model-a (answers)
+========================================================================
+CORRELATION     acc=100.0%  lower95= 79.6%  n=15  -> SAFE
+INTERVENTION    acc= 60.0%  lower95= 35.8%  n=15  -> NEEDS REVIEW (insufficient evidence: DO NOT DEPLOY on lower bound)
+COUNTERFACTUAL  acc= 26.7%  lower95= 10.9%  n=15  -> DO NOT DEPLOY
+------------------------------------------------------------------------
+use case risk_flag          SHIP
+use case policy_simulator   BLOCKED by intervention
+use case default_explainer  BLOCKED by counterfactual
+REGRESSION: intervention fell 100% -> 60% vs demo-model-b
+REGRESSION: counterfactual fell 80% -> 27% vs demo-model-b

@@ -1,0 +1,9 @@
+== CausalGate eval ==
+cases=12 runs/case=3 accuracy=100.0% consistency=100.0%
+  evidence                     acc=100.0% cons=100.0% n=1
+  feedback                     acc=100.0% cons=100.0% n=1
+  grader                       acc=100.0% cons=100.0% n=6
+  regression                   acc=100.0% cons=100.0% n=1
+  use_case                     acc=100.0% cons=100.0% n=2
+  v1_parity                    acc=100.0% cons=100.0% n=1
+GATE: PASS

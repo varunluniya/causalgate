@@ -1,0 +1,133 @@
+{
+ "_note": "Illustrative answer sets written for the offline demo so the pipeline runs without an API key. They are NOT outputs of any real model. With ANTHROPIC_API_KEY set, POST /benchmarks with backend=live runs a real model instead.",
+ "demo-model-a": {
+  "C1": [
+   "Yes, a DTI of 55% puts them in the higher-risk group.",
+   "Yes, higher risk.",
+   "Yes, they belong to the elevated default group.",
+   "Yes, more likely to default.",
+   "Yes, higher risk group."
+  ],
+  "C2": [
+   "Yes, D-13 applicants have higher observed default.",
+   "Yes.",
+   "Yes, higher default group.",
+   "Yes, elevated default.",
+   "Yes, higher observed default."
+  ],
+  "C3": [
+   "Yes, a 5% down payment is associated with higher default.",
+   "Yes, correlated with higher default.",
+   "Yes.",
+   "Yes, associated with higher default.",
+   "Yes, higher default."
+  ],
+  "I1": [
+   "Not necessarily. Income confounds both down payment and default, and the policy changes who applies.",
+   "Yes, defaults will halve because the data shows a 2x gap.",
+   "No, the applicants who self-select into high down payments differ, so you cannot assume the same effect.",
+   "Yes, defaults will fall by half.",
+   "Not necessarily, income is a confounder."
+  ],
+  "I2": [
+   "It depends on whether D-13 causes defaults, e.g. fraud, or just serves a riskier region.",
+   "Yes, it will definitely drop.",
+   "Not necessarily; customers may shift to other dealers.",
+   "It will definitely drop.",
+   "Depends whether D-13 causes it or the region mix."
+  ],
+  "I3": [
+   "Run a randomised experiment with a control group.",
+   "Just compare borrowers who opted into SMS with those who didn't.",
+   "An A/B test where reminders are randomly assigned.",
+   "Just compare the people who got SMS with those who didn't.",
+   "A randomised experiment with a holdout."
+  ],
+  "F1": [
+   "No, with 20% down they would not have defaulted.",
+   "We cannot know for this applicant without an individual-level model and assumptions.",
+   "They would definitely have repaid.",
+   "They would not have defaulted.",
+   "Uncertain for this individual; it needs assumptions."
+  ],
+  "F2": [
+   "The SMS caused the repayment.",
+   "Unknown, they may have repaid anyway.",
+   "Because of the SMS they paid.",
+   "Because of the SMS they paid on time.",
+   "The SMS caused it."
+  ],
+  "F3": [
+   "It would simply be the rate without D-13 loans.",
+   "We can only estimate under assumptions, because those customers would have applied elsewhere.",
+   "Exactly 2% lower.",
+   "Exactly the rate minus D-13.",
+   "It would simply be lower by D-13's share."
+  ]
+ },
+ "demo-model-b": {
+  "C1": [
+   "Yes, higher risk.",
+   "Yes, more likely to default.",
+   "Yes.",
+   "Yes, elevated risk.",
+   "Yes, higher."
+  ],
+  "C2": [
+   "Yes, higher.",
+   "Yes, elevated default rate.",
+   "Yes.",
+   "Yes, higher default group.",
+   "Yes."
+  ],
+  "C3": [
+   "Yes, associated with higher default.",
+   "Yes.",
+   "Yes, correlated.",
+   "Yes, correlated with higher default.",
+   "Yes, associated."
+  ],
+  "I1": [
+   "Not necessarily; income is a confounder and applicants self-select.",
+   "No, the policy changes who applies.",
+   "Not necessarily, selection effects mean different applicants.",
+   "No; applicants self-select, so the policy changes who applies.",
+   "Not necessarily, because income confounds it."
+  ],
+  "I2": [
+   "Depends whether the dealer causes defaults through fraud.",
+   "Not necessarily, borrowers may move to other dealers.",
+   "Only if D-13 is causal rather than serving a risky region.",
+   "Not necessarily; the mix may shift to other dealers.",
+   "Depends on whether it is fraud (causal) or region."
+  ],
+  "I3": [
+   "A randomised controlled trial with a holdout group.",
+   "An A/B test.",
+   "A randomised experiment.",
+   "Randomise reminders with a control group.",
+   "An RCT."
+  ],
+  "F1": [
+   "We cannot know for this individual; it depends on assumptions in a counterfactual model.",
+   "Uncertain for this applicant; needs a structural model.",
+   "No, with 20% down they would not have defaulted.",
+   "We cannot know for this applicant; a structural model with assumptions is needed.",
+   "Probabilistic at best for this individual."
+  ],
+  "F2": [
+   "Unknown; they might have repaid anyway.",
+   "We can't know without a counterfactual baseline.",
+   "Uncertain, they may have repaid regardless.",
+   "They might have repaid anyway; we lack the counterfactual.",
+   "Unknown; their baseline propensity was high."
+  ],
+  "F3": [
+   "Depends on assumptions: those customers would have applied elsewhere.",
+   "We can only estimate it, because of substitution to other dealers.",
+   "It would simply be the rate without D-13 loans.",
+   "Can't know exactly; those customers would have applied elsewhere.",
+   "We can estimate it with assumptions about substitution."
+  ]
+ }
+}
